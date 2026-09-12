@@ -1,0 +1,5 @@
+# Configuration variables
+SIMULATION_RATE = 10 # Hz
+RADAR_RANGE = 10000 # meters
+INTERCEPTOR_SPEED = 300 # m/s
+TRACKING_NOISE = 0.5
