@@ -1,42 +1,39 @@
-# IronDome-MDV: Simulated Aerial Threat Detection & Tracking System
+# IronDome-MDV-Simulator
 
-> [!WARNING]
-> **DISCLAIMER: This is a small-scale university concept project built as an academic proof-of-concept to explore sensor fusion and real-time tracking. It is NOT a functional weapons system.**
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Status](https://img.shields.io/badge/status-Active-success.svg)
 
-## 📖 Problem Statement
-Modern aerial defense requires integrating multiple noisy data streams (e.g., radar, computer vision) to maintain accurate tracks on highly maneuverable targets. This project explores a simulated pipeline incorporating YOLO-based computer vision and Kalman Filter kinematics tracking to demonstrate basic sensor fusion and intercept geometry.
+## Description
+This project focuses on aerial threat tracker sim. It aims to provide a robust, efficient, and scalable solution using modern technologies and best practices in the field.
 
-## 🏗 System Architecture
-```mermaid
-graph TD;
-    R[Radar Simulator] --> F[Sensor Fusion Engine]
-    C[Camera / YOLO Detector] --> F
-    F --> K[Kalman Filter Tracking]
-    K --> T[Intercept Calculator]
-    T --> D[Visualization Dashboard]
+## Key Features
+- High performance architecture
+- Extensible and modular design
+- Comprehensive data processing capabilities
+- Easy-to-use interface and quick setup
+
+## Tech Stack
+- YOLOv11\n- Kalman Filter\n- Sensor Fusion\n- Python
+
+## Quick Start
+```bash
+git clone https://github.com/iMuneebK/IronDome-MDV-Simulator.git
+cd IronDome-MDV-Simulator
+pip install -r requirements.txt
+python main.py
 ```
 
-## 🛠 Technologies Used
-- **Python 3.10+**
-- **Ultralytics YOLOv11 / YOLOv8** for Computer Vision Detection
-- **NumPy** for Matrix Mathematics and Filtering
-- **OpenCV** for Simulation Rendering
+## Project Structure
+```
+IronDome-MDV-Simulator/
+├── data/
+├── models/
+├── src/
+├── main.py
+├── requirements.txt
+└── README.md
+```
 
-## 🧮 Mathematical Models
-### Kalman Filter
-The system models target kinematics using a discrete-time linear Kalman Filter:
-- State Vector: `X = [x, y, vx, vy]^T`
-- Predict Step: `X_pred = F * X_prev`, `P_pred = F * P_prev * F^T + Q`
-- Update Step: `K = P_pred * H^T * (H * P_pred * H^T + R)^-1`
-
-### Intercept Geometry
-The naive intercept calculation assumes a constant-velocity interceptor and target, deriving the intersection point algebraically. 
-
-## 📊 Simulation Results
-- Successfully tracked simulated targets amidst Gaussian noise.
-- Maintained track continuity when CV detections dropped frames (thanks to the Kalman Filter prediction step).
-- Fused Threat Assessment correctly classified drones vs fixed-wing aircraft based on simulated speeds and YOLO classifications.
-
-## 📚 Academic References
-1. Kalman, R. E. (1960). "A New Approach to Linear Filtering and Prediction Problems." *Journal of Basic Engineering*.
-2. Redmon, J., et al. "You Only Look Once: Unified, Real-Time Object Detection." *CVPR*.
+## License
+This project is licensed under the MIT License.
